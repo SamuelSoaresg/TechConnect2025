@@ -1,0 +1,336 @@
+/* ---------- CSS ---------- */
+:root {
+  --blue-dark: #005896;   /* primário escuro */
+  --blue-light: #4EC8FB;  /* primário claro */
+  --midnight: #000819;    /* fundo principal */
+  --black: #000000;
+
+  --radius-lg: 1.75rem;
+  --radius-md: 1.125rem;
+  --radius-sm: 0.625rem;
+
+  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
+
+  --blur-bg: blur(22px) saturate(160%);
+
+  --text-primary: #ffffff;
+  --text-secondary: #cdd6e0;
+  --gradient-accent: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-dark) 100%);
+}
+
+/* ----------  Reset Global ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", "Inter", "Roboto", sans-serif;
+  color: var(--text-primary);
+  background: radial-gradient(circle at 20% 20%, var(--blue-dark) 0%, var(--midnight) 35%, var(--black) 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-inline: clamp(1rem, 3vw, 3rem);
+  padding-bottom: 6rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---------- Header ---------- */
+header {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  text-align: center;
+  padding-block: 4rem 6rem;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% -20%, var(--blue-light) 0%, transparent 60%);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* nav bar */
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-bottom: 3rem;
+}
+
+nav a {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.4rem 0.2rem;
+  transition: opacity 0.25s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: var(--blue-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.75;
+}
+nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hero texto */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+header img {
+  width: clamp(160px, 25vw, 260px);
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: var(--blur-bg);
+}
+
+/* ---------- Sections ---------- */
+section {
+  width: 100%;
+  max-width: 1260px;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius-lg);
+  background: rgba(0, 8, 25, 0.6);
+  backdrop-filter: var(--blur-bg);
+  box-shadow: var(--shadow-md);
+}
+
+section + section {
+  margin-top: 3.5rem;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-accent);
+  border-radius: 999px;
+}
+
+p {
+  line-height: 1.8;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ---------- Programação ---------- */
+ul.programacao {
+  list-style: none;
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+ul.programacao li {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(78, 200, 251, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+ul.programacao li:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+ul.programacao time {
+  color: var(--blue-light);
+  font-weight: 600;
+}
+
+ul.programacao strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+/* ---------- Tabela de Palestrantes ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+table thead {
+  background: var(--gradient-accent);
+}
+
+table th {
+  text-align: left;
+  padding: 1rem;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+table td {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+table tr:hover td {
+  background: rgba(0, 88, 150, 0.12);
+  color: var(--text-primary);
+}
+
+/* ---------- Formulário ---------- */
+form {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-width: 500px;
+}
+
+label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(78, 200, 251, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  color: var(--text-primary);
+  transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+input:focus {
+  border-color: var(--blue-light);
+  box-shadow: 0 0 0 3px rgba(78, 200, 251, 0.25);
+  outline: none;
+}
+
+button {
+  background: var(--gradient-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--black);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---------- Footer ---------- */
+footer {
+  width: 100%;
+  max-width: 1260px;
+  margin-inline: auto;
+  text-align: center;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-block: 3rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- Utilitarios ---------- */
+.gradient-text {
+  background: var(--gradient-accent);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+/* ---------- Media Queries ---------- */
+@media (max-width: 768px) {
+  nav {
+    gap: 1rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  table th,
+  table td {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
