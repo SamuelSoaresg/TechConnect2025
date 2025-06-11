@@ -52,23 +52,14 @@ img {
 header {
   width: 100%;
   max-width: 1400px;
-  margin-inline: auto;
-  text-align: center;
-  padding-block: 4rem 6rem;
-  position: relative;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 80% -20%, var(--blue-light) 0%, transparent 60%);
-  opacity: 0.25;
-  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* nav bar */
 nav {
+  margin: 30px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -125,11 +116,6 @@ h3 {
 }
 
 header img {
-  width: clamp(160px, 25vw, 260px);
-  margin-inline: auto;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: var(--blur-bg);
 }
 
 /* ---------- Sections ---------- */
