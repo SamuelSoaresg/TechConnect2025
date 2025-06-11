@@ -207,7 +207,7 @@ table thead {
 table th {
   text-align: left;
   padding: 1rem;
-  color: var(--black);
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 1rem;
 }
