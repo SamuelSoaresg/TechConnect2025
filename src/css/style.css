@@ -314,6 +314,86 @@ button:active {
   line-height: 1.5;
 }
 
+/* ---------- Destaques ---------- */
+
+.destaques {
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.destaques h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 0.75rem;
+  position: relative;
+  text-align: justify;
+  padding-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.destaques h2::after {
+  content: "";
+  position: absolute;
+  left: 2.5%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-accent);
+  border-radius: 999px;
+}
+
+.destaques p {
+  text-align: justify;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.cards-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(78, 200, 251, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card .emoji {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--blue-light);
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+
 /* ---------- Footer ---------- */
 footer {
   width: 100%;
@@ -344,7 +424,7 @@ footer {
 
 .galeria-grid img {
   width: 100%;
-  height: 200px; /* Altura fixa para todas */
+  height: 200px; 
   overflow: hidden;
   border-radius: 10px;
   object-fit: cover;
