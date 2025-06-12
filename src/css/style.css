@@ -275,6 +275,45 @@ button:active {
   box-shadow: var(--shadow-md);
 }
 
+/* ---------- Patrocinadores ---------- */
+
+.patrocinadores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.patrocinador {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(78, 200, 251, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.patrocinador:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.patrocinador img {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 5px rgba(78, 200, 251, 0.3));
+  border-radius: var(--radius-sm);
+}
+
+.patrocinador p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
 /* ---------- Footer ---------- */
 footer {
   width: 100%;
