@@ -11,16 +11,24 @@
     
     <!---------------------------------Cabeçalho------------------------------->
 
-    <nav>
-      <a href="#sobre-o-evento">Sobre o evento</a>
-      <a href="#programacao">Programação</a>
-      <a href="#palestrantes">Palestrantes</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#inscricoes">Inscrições</a>
-      <a href="#patrocinadores">Patrocinadores</a>
-      <a href="#destaques">Destaques</a>
-      <a href="#contato">Contato</a>
-    </nav>
+<nav id="nav">
+    <input type="checkbox" id="btn-mobile-checkbox" class="checkbox-hack">
+    
+    <label for="btn-mobile-checkbox" class="btn-mobile-label">
+        <span class="hamburguer"></span>
+    </label>
+    
+    <ul id="menu" class="menu">
+        <li><a href="#sobre-o-evento">Sobre o evento</a></li>
+        <li><a href="#programacao">Programação</a></li>
+        <li><a href="#palestrantes">Palestrantes</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#inscricoes">Inscrições</a></li>
+        <li><a href="#patrocinadores">Patrocinadores</a></li>
+        <li><a href="#destaques">Destaques</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+</nav>
 
     <header>
 
@@ -205,10 +213,8 @@
     <section>
       <h2 id="inscricoes">Inscrições</h2>
       <p><strong>Garanta sua vaga no TechConnect 2025!</strong></p>
-      <p>Clique no botão abaixo para se inscrever:</p>
-      <button>Inscreva-se</button>
-      <p>Ou preencha o formulário abaixo:</p>
-      <form action="">
+      <p>Preencha o formulário abaixo:</p>
+      <form id="inscricao-form">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required />
         <label for="email">E-mail:</label>
@@ -217,17 +223,6 @@
       </form>
     </section>
 
-    <!-------------Seção com as informações do Evento------------>
-
-    <section>
-      <h2 id="contato">Contato</h2>
-      <p><strong>Fale com a organização:</strong></p>
-      <ul>
-        <li>E-mail: <i>contato@techconnect2025.com.br</i></li>
-        <li>Instagram: <i>@techconnect2025</i></li>
-        <li>Twitter/X: <i>@techconnect_evento</i></li>
-      </ul>
-    </section>
 
     <!------------------Seção para os patrocinadores do Evento-------------->
 
@@ -286,6 +281,18 @@
     </div>
   </div>
 </section>
+
+ <!-------------Seção com as informações do Evento------------>
+
+    <section>
+      <h2 id="contato">Contato</h2>
+      <p><strong>Fale com a organização:</strong></p>
+      <ul>
+        <li>E-mail: <a href="mailto:contato@techconnect2025.com.br">Solicitar mais informações</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/" target="_blank">@techconnect2025</a></li>
+        <li>Twitter/X: <a href="https://x.com/home" target="_blank">@techconnect_evento</a></li>
+      </ul>
+    </section>
 
     <!---------------------------Rodapé------------------------->
 

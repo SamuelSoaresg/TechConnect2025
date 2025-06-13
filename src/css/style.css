@@ -1,8 +1,8 @@
 /* ---------- CSS ---------- */
 :root {
-  --blue-dark: #005896;   /* primário escuro */
-  --blue-light: #4EC8FB;  /* primário claro */
-  --midnight: #000819;    /* fundo principal */
+  --blue-dark: #005896; 
+  --blue-light: #4EC8FB;  
+  --midnight: #000819;    
   --black: #000000;
 
   --radius-lg: 1.75rem;
@@ -58,43 +58,47 @@ header {
 }
 
 /* nav bar */
-nav {
-  margin: 30px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(1rem, 3vw, 2rem);
-  margin-bottom: 3rem;
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px 50px 0px;
+    gap: clamp(1rem, 3vw, 2rem);
 }
 
-nav a {
-  position: relative;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  color: var(--text-primary);
-  text-decoration: none;
-  padding: 0.4rem 0.2rem;
-  transition: opacity 0.25s ease;
+.menu a {
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 0.4rem 0.2rem;
+    transition: opacity 0.25s ease;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: var(--blue-light);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: var(--blue-light);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
-nav a:hover {
-  opacity: 0.75;
+.menu a:hover {
+    opacity: 0.75;
 }
-nav a:hover::after {
-  transform: scaleX(1);
+.menu a:hover::after {
+    transform: scaleX(1);
+}
+
+.checkbox-hack,
+.btn-mobile-label {
+    display: none;
 }
 
 /* Hero texto */
@@ -115,8 +119,6 @@ h3 {
   margin-bottom: 2.5rem;
 }
 
-header img {
-}
 
 /* ---------- Sections ---------- */
 section {
@@ -432,27 +434,78 @@ footer {
 }
 
 /* ---------- Media Queries ---------- */
-@media (max-width: 768px) {
-  nav {
-    gap: 1rem;
-  }
 
-  section {
-    padding: 1.5rem;
-  }
+  @media (max-width: 850px) {
+    
+    .btn-mobile-label {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        cursor: pointer;
+        z-index: 1001; 
+    }
 
-  table th,
-  table td {
-    padding: 0.75rem;
-  }
-}
+    .hamburguer {
+        display: block;
+        border-top: 2px solid var(--text-primary);
+        width: 20px;
+    }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2.25rem;
-  }
+    .hamburguer::after,
+    .hamburguer::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: transform 0.3s;
+        position: relative;
+    }
 
-  h2 {
-    font-size: 1.5rem;
-  }
+    .menu {
+        display: none; 
+        position: absolute;
+        width: 100%;
+        top: 80px; 
+        right: 0px;
+        background: var(--midnight);
+        height: calc(100vh - 80px);
+        z-index: 1000;
+        flex-direction: column; 
+        padding-top: 1rem;
+        gap: 0;
+    }
+
+    .menu li {
+        padding: 0.5rem 0;
+        margin: 0 1rem;
+        border-bottom: 1px solid rgba(78, 200, 251, 0.1);
+    }
+    
+    .menu li a {
+        padding: 1rem;
+        display: block;
+    }
+
+    .checkbox-hack:checked ~ .menu {
+        display: flex;
+    }
+
+    .checkbox-hack:checked + .btn-mobile-label .hamburguer {
+        border-top-color: transparent;
+    }
+
+    .checkbox-hack:checked + .btn-mobile-label .hamburguer::before {
+        transform: rotate(135deg);
+    }
+
+    .checkbox-hack:checked + .btn-mobile-label .hamburguer::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+    
+    nav > a {
+      display: none;
+    }
 }
